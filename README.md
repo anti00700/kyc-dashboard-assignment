@@ -43,3 +43,7 @@ npm start
 - React 18
 - Tailwind CSS
 - Lucide Icons
+
+## 📸 Screenshot
+
+![Dashboard Preview](public/sc1.png)
