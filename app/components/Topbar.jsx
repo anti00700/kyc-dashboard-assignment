@@ -28,7 +28,7 @@ export default function Topbar() {
             {/* Profile */}
             <div className="flex items-center gap-3">
               <img
-                src="/Profile.jpg"
+                src="/profile.jpg"
                 alt="Profile"
                 className="h-8 w-8 rounded-full object-cover"
               />
