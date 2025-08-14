@@ -1,30 +1,30 @@
 export async function GET() {
   const data = {
     totalKYC: {
-      new: { count: 1240, change: 8.4 },
-      modified: { count: 310, change: -3.2 },
+      new: { count: 3000, change: 12 },
+      modified: { count: 456, change: -10 },
+      total: 3456,
     },
     bar: {
-      labels: ["Today", "Yesterday"],
-      individual: [400, 350],
-      nonIndividual: [120, 100],
+      today: [360, 300],       // [Individual, Non Individual]
+      yesterday: [280, 220],
     },
-    pie: { solicited: 400, received: 320, consumed: 290, pending: 30 },
+    pie: { solicited: 3456, received: 3200, consumed: 2900, pending: 256 },
     panStats: {
-      solicited: { total: 420, withImage: 210 },
-      received: { total: 360, withImage: 180 },
+      solicited: { total: 400, withImage: 250 },
+      received: { total: 320, withImage: 220 },
     },
     categories: {
       individual: { ri: 76, nri: 44 },
       nonIndividual: { ri: 34, nri: 12 },
     },
     statusCards: [
-      { label: "KYC Initiated", count: 420, note: "Initiated today" },
-      { label: "Under Process", count: 210, note: "In-progress" },
-      { label: "Registered", count: 120, note: "Registered" },
-      { label: "Validated", count: 980, note: "Validated" },
-      { label: "Hold", count: 12, note: "On hold" },
-      { label: "Docs Pending", count: 45, note: "Docs pending" },
+      { label: "KYC Initiated", count: 234 },
+      { label: "Under Process", count: 350 },
+      { label: "Registered", count: 654 },
+      { label: "Validated", count: 269 },
+      { label: "Hold", count: 100 },
+      { label: "Docs Pending", count: 96 },
     ],
   };
 

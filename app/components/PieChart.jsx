@@ -1,63 +1,48 @@
 "use client";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function PieChart() {
-  return (
-    <div className="bg-white rounded-lg shadow p-6 h-full">
-      <div className="flex flex-col items-center">
-        <div className="relative w-32 h-32 mb-4">
-          <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
-            <path
-              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              fill="none"
-              stroke="#e5e7eb"
-              strokeWidth="3"
-            />
-            <path
-              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              fill="none"
-              stroke="#3b82f6"
-              strokeWidth="3"
-              strokeDasharray="60, 100"
-            />
-            <path
-              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              fill="none"
-              stroke="#06b6d4"
-              strokeWidth="3"
-              strokeDasharray="20, 100"
-              strokeDashoffset="-60"
-            />
-            <path
-              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-              fill="none"
-              stroke="#ef4444"
-              strokeWidth="3"
-              strokeDasharray="15, 100"
-              strokeDashoffset="-80"
-            />
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-2xl font-bold">3,456</span>
-          </div>
-        </div>
+  const data = {
+    labels: [
+      "No Of PANs Solicited",
+      "Received",
+      "Consumed",
+      "Pending",
+    ],
+    datasets: [
+      {
+        data: [3456, 3200, 2900, 300],
+        backgroundColor: ["#06b6d4", "#3b82f6", "#10b981", "#ef4444"],
+        borderWidth: 0,
+      },
+    ],
+  };
 
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-            <span>No Of PANs Selected</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
-            <span>Received</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-            <span>Consumed</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <span>Pending</span>
-          </div>
+  const options = {
+    cutout: "75%",
+    plugins: {
+      legend: {
+        position: "right",
+        labels: { boxWidth: 12, color: "#6b7280" },
+      },
+    },
+  };
+
+  return (
+    <div className="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+      <div style={{ width: "280px", height: "280px", position: "relative" }}>
+        <Doughnut data={data} options={options} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span className="text-2xl font-bold">3,456</span>
+          <span className="text-gray-500 text-sm">Total</span>
         </div>
       </div>
     </div>
